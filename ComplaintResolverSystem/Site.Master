@@ -1,0 +1,339 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ComplaintResolverSystem.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <!--link href="~/Styles/Site.css" rel="stylesheet" type="text/css" /-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <style>
+        .fixed-nav-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 9999;
+          width: 100%;
+          height: 70px;
+          background-color: #ffff;
+        }
+
+        /* The element at the top of the page right after the fixed navigation bar
+           MUST have sufficient top margin or else it will be covered by the bar */
+        .content {
+          margin-top: 20px;
+        }
+
+        /* Example responsive navigation menu  */
+        .fixed-nav-bar li, .fixed-nav-bar a { 
+          height: 50px;
+          line-height: 50px;
+        }
+        .menu {
+          width: 90%;
+          max-width: 960px;
+          margin: 0 auto;
+          height: 70px;
+        }
+        .menu a, .menu a:visited {
+          color: #00000;
+        }
+        .menu a:hover, .menu a:target {
+          color: #19A0D3;
+          border-bottom:3px solid red;
+        }
+        .menu-items {
+          display: inline-block;
+          float:right;
+        }
+        .sitename {
+          display: inline-block;
+          margin-right: 20px;
+          margin-left: 10px;
+          font-size:30px;
+          color:#00354a;
+        }
+        a.sitename, a:visited.sitename {
+          color: #00354a;
+        }
+        .menu-items li {
+          display: inline-block;
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+        .menu-items a {
+          text-decoration: none;
+        }
+        .show, .hide {
+          display: none;
+          padding-left: 15px;
+          background-color: transparent;
+          background-repeat: no-repeat;
+          background-position: center left;
+          color: #dde1e2;
+        }
+        .show {
+          background-image: url(assets/down-arrow-icon.png);
+        }
+        .hide {
+          background-image: url(assets/up-arrow-icon.png);
+        }
+
+        @media only screen and (max-width: 800px) {
+          .menu { 
+            position: relative;
+            width: 100%;
+          }
+          .sitename {
+            position: absolute;
+            top: 0;
+            left: 15px;
+            margin-left: 0px;
+          }
+          .menu-items {
+            display: none; 
+            width: 100%;
+            margin-top: 70px;
+            background-color: #ffff;
+            color: #000000;
+          }
+          .menu-items li {
+            display: block;
+            text-align: center;
+          }
+          .show, .hide {  
+            position: absolute;
+            top: 0;
+            right: 15px;
+          }
+          .show {
+            display: inline-block;
+          }
+          .hide {
+            display: none;
+          }
+          #menu:target .show {
+            display: none;
+          }
+          #menu:target .hide, #menu:target .menu-items {
+            display: inline-block;
+          }
+        }
+
+        @media only screen and (max-width: 220px) {
+          .sitename, .show, .hide {
+            font-size: 14px;
+          }
+        }
+        /* WEB FONT */
+        @import url(http://fonts.googleapis.com/css?family=Signika:600|Varela+Round);
+
+        /* RESET */
+        * {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+        /* BASIC */
+        body {
+          font: normal 18px/22px "Varela Round", sans-serif;
+          background-color: #e9ffff;
+          color: #2e2e2e;
+        }
+        h1, h2 {
+          font-family: "Signika", sans-serif;
+          font-weight: 600;
+        }
+        h1 {
+          font-size: 36px;
+          line-height: 46px;
+          color: #e0e0e0;
+        }
+        h2 {
+          font-size: 24px;
+          line-height: 33px;
+          margin-bottom: -20px;
+        }
+        p {
+          margin: 20px 0;
+        }
+        a:link, a:visited, a:hover, a:active {
+          text-decoration: none;
+        }
+
+        /* LAYOUT */
+        .fixed-nav-bar {
+          box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.6);
+        }
+
+        .content {
+          position: relative;
+          background: #464646 url(59H-from-gratisography.jpg) no-repeat center center fixed;
+          background-size: cover;
+         }
+        .description, .some-related-articles {
+          width: 90%;
+          max-width: 960px;
+          margin: 0 auto;
+        }
+        .description {
+          padding-top: 100px;
+          min-height: 250px;
+          text-align: center;
+        }
+        .some-related-articles {
+          color: #747474;
+        }
+        .some-related-articles h1 {
+          color: #384e56;
+          margin-top: 60px;
+          text-transform: uppercase;
+        }
+        .some-related-articles h2 a:link, .some-related-articles h2 a:visited  {
+          color: #464646;
+          transition: color 0.1s ease;
+        }
+        .some-related-articles h2 a:hover {
+          color: #000000;
+          transition: color 0.3s ease;
+        }
+        /* SPECIAL */
+        .summary {
+          color: #d9dee2;
+          margin-top: 40px;
+          margin-bottom: 60px;
+        }
+        .button, .button:visited, .button-dark {
+          display: inline-block;
+          max-width: 200px;
+          margin: 50px 10px 30px 10px;
+          padding: 10px;
+          font-family: "Signika", sans-serif;
+          color: #ffffff;
+          background-color: transparent;
+          border: 2px solid #ffffff;
+          border-radius: 3px;
+          text-transform: capitalize;
+          text-align: center;
+          transition: all 0.1s ease;
+        }
+        .button-dark, .button-dark:visited {
+          margin: 20px 10px 30px 0;
+          color: #464646;
+          border-color: #464646;
+
+        }
+        .button:hover, .button-dark:hover {
+          transition: all 0.3s ease;
+        }
+        .button:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        .button-dark:hover {
+          color: #ffffff;
+          background-color: rgba(70, 70, 70, 0.9);
+        }
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: #02354B;
+          color: white;
+          text-align: center;
+          height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+  <nav class="fixed-nav-bar">
+  <div id="menu" class="menu">
+    <a class="sitename" href="">Complaint Resolver System</a>
+    <!-- Example responsive navigation menu  -->
+    <a class="show" href="#menu">Menu</a><a class="hide" href="#hidemenu">Menu</a>
+    <ul class="menu-items">
+      <li><a href="">Home</a></li>
+      <li><a href="">About Us</a></li>
+      <li><a href="">Contact Us</a></li>
+      <li><a href=""> Login </a></li>
+  </ul>
+  </div>
+</nav>
+
+<section class="content">
+  <div class="description">
+    <h1>Fixed Navigation Bar</h1>
+    <p class="summary">A fixed-position (or "sticky") top navigation bar. Scroll this page to see the top navigation bar stay in place.</p>
+    <a class="button" href="//sixrevisions.com/css/fixed-navigation-bar/">Read the tutorial</a>
+    <a class="button" href="//github.com/sixrevisions/fixed-navigation-bar">View Source on GitHub</a>
+  </div>
+</section>
+<section class="some-related-articles">
+  <h1>Articles About Website Navigation</h1>
+  <p>Here are links (with excerpts) to five Six Revisions articles that talk about website navigation. (Because filler content/lorem ipsum sucks.)</p>
+  <h2><a href="//sixrevisions.com/user-interface/navigation-design-patterns/">Guide to Website Navigation Design Patterns</a></h2>
+  <p>Site navigation has a wide variety of common and familiar design patterns that can be used as a foundation for building effective information architecture for a website. This guide covers popular site navigation design patterns. For each site navigation design pattern, we discuss its common characteristics, its drawbacks, and when best to use it.</p>
+  <h2><a href="//sixrevisions.com/user-interface/is-it-time-to-rethink-website-navigation/">Is It Time To Rethink Website Navigation?</a></h2>
+  <p>One of the many beautiful things about web design is the near-limitless options available to us. Yet, still, our navigation systems seem stuck into the existing preformed solutions. For small, personal sites, a simple top horizontal navigation bar is the typical option.</p>
+  <h2><a href="//sixrevisions.com/web-standards/trying-navigate-website-navigation/">Trying to Navigate Website Navigation</a></h2>
+  <p>Having clearly labeled navigation types to choose from can help people organize the information more easily. For us professionals, having standardized nomenclature allow us to discuss and explore the subject.  Even information architecture (IA) experts like Lou Rosenfeld, Steve Krug, Jesse James Garrett, and Jakob Nielsen don't agree as to what "secondary navigation" is.</p>
+  <h2><a href="//sixrevisions.com/user-interface/responsive-menus/">8 Ways to Add a Responsive Navigation Menu on Your Site</a></h2>
+  <p>There are plenty of techniques for implementing responsive navigation menus on your site. This article talks about eight excellent open source projects for building responsive navigation menus. At the end of the article, you will find a summary table that has links to the official site, demos, usage guide, and official open source repository for each project.</p>
+  <h2><a href="http://sixrevisions.com/usabilityaccessibility/information-architecture-101-techniques-and-best-practices/">Information Architecture 101: Techniques and Best Practices</a></h2>
+  <p>Without a clear understanding of how information architecture (IA) works, we can end up creating sites that are more confusing than they need to be or, worse, make our content virtually inaccessible. This guide covers the fundamentals of information architecture for organizing website content. We will look into popular IA design patterns, best practices, design techniques, and case examples.</p>
+  <p><a class="button-dark" href="//sixrevisions.com/css/fixed-navigation-bar/">Read the tutorial</a>
+  <a class="button-dark" href="//github.com/sixrevisions/fixed-navigation-bar">View Source on GitHub</a></p>
+</section>
+
+
+    <form runat="server">
+    
+
+
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    My ASP.NET Application
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+</body>
+</html>
