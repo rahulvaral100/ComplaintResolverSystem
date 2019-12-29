@@ -25,7 +25,9 @@
         /* The element at the top of the page right after the fixed navigation bar
            MUST have sufficient top margin or else it will be covered by the bar */
         .content {
-          margin-top: 20px;
+          margin-top: 70px;
+          background-color: #F5F5F5;
+          margin-bottom:0px;
         }
 
         /* Example responsive navigation menu  */
@@ -44,7 +46,7 @@
         }
         .menu a:hover, .menu a:target {
           color: #19A0D3;
-          border-bottom:3px solid red;
+          border-bottom:3px solid #02354B;
         }
         .menu-items {
           display: inline-block;
@@ -172,7 +174,7 @@
 
         .content {
           position: relative;
-          background: #464646 url(59H-from-gratisography.jpg) no-repeat center center fixed;
+          background: #F5F5F5;
           background-size: cover;
          }
         .description, .some-related-articles {
@@ -181,61 +183,9 @@
           margin: 0 auto;
         }
         .description {
-          padding-top: 100px;
-          min-height: 250px;
+          padding-top: 10px;
+          min-height: 580px;
           text-align: center;
-        }
-        .some-related-articles {
-          color: #747474;
-        }
-        .some-related-articles h1 {
-          color: #384e56;
-          margin-top: 60px;
-          text-transform: uppercase;
-        }
-        .some-related-articles h2 a:link, .some-related-articles h2 a:visited  {
-          color: #464646;
-          transition: color 0.1s ease;
-        }
-        .some-related-articles h2 a:hover {
-          color: #000000;
-          transition: color 0.3s ease;
-        }
-        /* SPECIAL */
-        .summary {
-          color: #d9dee2;
-          margin-top: 40px;
-          margin-bottom: 60px;
-        }
-        .button, .button:visited, .button-dark {
-          display: inline-block;
-          max-width: 200px;
-          margin: 50px 10px 30px 10px;
-          padding: 10px;
-          font-family: "Signika", sans-serif;
-          color: #ffffff;
-          background-color: transparent;
-          border: 2px solid #ffffff;
-          border-radius: 3px;
-          text-transform: capitalize;
-          text-align: center;
-          transition: all 0.1s ease;
-        }
-        .button-dark, .button-dark:visited {
-          margin: 20px 10px 30px 0;
-          color: #464646;
-          border-color: #464646;
-
-        }
-        .button:hover, .button-dark:hover {
-          transition: all 0.3s ease;
-        }
-        .button:hover {
-          background-color: rgba(255, 255, 255, 0.2);
-        }
-        .button-dark:hover {
-          color: #ffffff;
-          background-color: rgba(70, 70, 70, 0.9);
         }
         .footer {
           position: fixed;
@@ -257,62 +207,22 @@
     <!-- Example responsive navigation menu  -->
     <a class="show" href="#menu">Menu</a><a class="hide" href="#hidemenu">Menu</a>
     <ul class="menu-items">
-      <li><a href="">Home</a></li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Contact Us</a></li>
-      <li><a href=""> Login </a></li>
+      <li><a href="home.aspx">Home</a></li>
+      <li><a href="registration.aspx">Registration</a></li>
+      <li><a href="aboutus.aspx">About Us</a></li>
+      <li><a href="contactus.aspx">Contact Us</a></li>
+      <li><a href="login.aspx"> Login </a></li>
   </ul>
   </div>
 </nav>
 
-<section class="content">
-  <div class="description">
-    <h1>Fixed Navigation Bar</h1>
-    <p class="summary">A fixed-position (or "sticky") top navigation bar. Scroll this page to see the top navigation bar stay in place.</p>
-    <a class="button" href="//sixrevisions.com/css/fixed-navigation-bar/">Read the tutorial</a>
-    <a class="button" href="//github.com/sixrevisions/fixed-navigation-bar">View Source on GitHub</a>
-  </div>
-</section>
+    <section class="content">
+      <div class="description">
+         <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+      </div>
+    </section>
 
-
-    <form id="Form1" runat="server">
-    
-
-
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    My ASP.NET Application
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                    </Items>
-                </asp:Menu>
-            </div>
-        </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="footer">
+   <div class="footer">
         
     </div>
     </form>
