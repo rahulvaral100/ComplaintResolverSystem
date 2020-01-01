@@ -58,13 +58,13 @@ namespace ComplaintResolverSystem {
         protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
-        /// RegularExpressionValidator3 control.
+        /// eamilvalidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator eamilvalidator;
         
         /// <summary>
         /// usernamelabel control.
