@@ -14,7 +14,7 @@
         }
         .contact-msg {
           width: 100%;
-          height: 50px;
+          height: 100px;
           padding: 12px;
           border: 1px solid #ccc;
           border-radius: 4px;
@@ -116,7 +116,7 @@
           </div>
           <div class="contact-col-75">
             <asp:TextBox ID="contact" CssClass="contact-input" name="contact" placeholder=" Contact Number.." runat="server" required></asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+            <asp:RegularExpressionValidator ID="contactvalidator" runat="server" 
              ControlToValidate="contact" ErrorMessage="Enter Valid Contact Number"                       
              ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
           </div>
@@ -127,7 +127,10 @@
             <asp:Label ID="msglabel" CssClass="contact-label" runat="server" Text="Message*"></asp:Label>
           </div>
           <div class="contact-col-75">
-              <textarea id="msg" CssClass="contact-msg" name="contact" placeholder=" Message.." runat="server" required></textarea>
+           <asp:TextBox ID="msg" CssClass="contact-msg" name="name" placeholder="Message.."  Textmode="MultiLine" runat="server" required></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+             ControlToValidate="name" ErrorMessage="Enter Valid Message"                       
+             ValidationExpression="[a-zA-Z ]*$"></asp:RegularExpressionValidator>      
           </div>
         </div>
 

@@ -19,19 +19,42 @@
       float: left;
     }
 
-    input[type=submit] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
+    .submitbtn {
+            padding: 8px 24px 7px 24px;
+            color: #ffffff;
+            border: solid 2px #19a0d3;
+            border-radius: 100px;
+            background-color: #19a0d3;
+            height: 40px;
+            width: 200px;
+            font-weight: 400;
+            float:right;
+            margin:10px;
     }
 
-    input[type=submit]:hover {
-      background-color: #45a049;
+    .submitbtn:hover {
+        background-color: #9B9B9B;
+        color: #fffff;
     }
+    
+     .cancelbtn {
+          padding: 8px 24px 7px 24px;
+          color: #ffffff;
+          border: solid 2px #19a0d3;
+          border-radius: 100px;
+          background-color: #9B9B9B;
+          height: 40px;
+          width: 200px;
+          font-weight: 400;
+          float:right;
+          margin:10px;
+    }
+
+    .cancelbtn:hover {
+        background-color: #19a0d3;
+        color: #fffff;
+    }
+
 
     .reg-container {
       border-radius: 5px;
@@ -136,6 +159,19 @@
           </div>
         </div>
 
+        <div class="reg-row">
+          <div class="reg-col-25">
+            <asp:Label ID="cotactlabel" CssClass="reg-label" runat="server" Text="Contact*"></asp:Label>
+          </div>
+          <div class="reg-col-75">
+            <asp:TextBox ID="contact" CssClass="reg-input" name="contact" placeholder=" Contact Number.." runat="server" required></asp:TextBox>
+            <asp:RegularExpressionValidator ID="contactvalidator" runat="server" 
+             ControlToValidate="contact" ErrorMessage="Enter Valid Contact Number"                       
+             ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
+          </div>
+        </div>
+
+
         <div class="row">
           <div class="reg-col-25">
             <asp:Label ID="doblabel" CssClass="reg-label" runat="server" Text="Date of Birth*"></asp:Label>
@@ -160,9 +196,12 @@
              <asp:Label ID="Label1" runat="server" Text="."></asp:Label>
           </div>
         </div>
-    
-      
+
+        <asp:Button ID="submitbtn" CssClass="submitbtn" runat="server" Text="Submit" onclick="Submitbtn_Click" />
+        <asp:Button ID="cancelbtn"  CssClass="cancelbtn" runat="server" Text="Cancel" onclick="Canceltbtn_Click" />
+        
         </div>
+      
       </form>
     </div>
 

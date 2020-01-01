@@ -13,5 +13,15 @@ namespace ComplaintResolverSystem
         {
 
         }
+
+        protected void Submitbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Canceltbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

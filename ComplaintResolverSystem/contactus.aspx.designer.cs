@@ -94,13 +94,13 @@ namespace ComplaintResolverSystem {
         protected global::System.Web.UI.WebControls.TextBox contact;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// contactvalidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator contactvalidator;
         
         /// <summary>
         /// msglabel control.
@@ -118,6 +118,15 @@ namespace ComplaintResolverSystem {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea msg;
+        protected global::System.Web.UI.WebControls.TextBox msg;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
     }
 }
